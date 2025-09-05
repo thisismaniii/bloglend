@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casual Philosophy Enjoyer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;500&display=swap');
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f7f6f3, #ecebe8);
+      color: #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .container {
+      background: #ffffffcc;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      max-width: 700px;
+      width: 100%;
+      animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      margin-bottom: 1rem;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    p {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      margin-bottom: 2.5rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      background: #1a1a1a;
+      color: #f6f5f2;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .social-link:hover {
+      background: #333;
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    footer a:hover {
+      border-color: #666;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 2rem 1.2rem;
+      }
+      .social-link {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Casual Philosophy Enjoyer</h1>
+    <p>expressing my thoughts type shi 😝 <br> <br><strong>blog coming soon!!</strong></p>
+    <a href="https://www.instagram.com/casualphilosophyenjoyer" target="_blank" class="social-link">
+      <!-- Instagram SVG Logo -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M224,202a53,53,0,1,0,53,53A53,53,0,0,0,224,202Zm124-41a54,54,0,1,0,54,54A54,54,0,0,0,348,161ZM398.8,80H49.2C22,80,0,102,0,129.2V382.8C0,410,22,432,49.2,432H398.8c27.2,0,49.2-22,49.2-49.2V129.2C448,102,426,80,398.8,80ZM224,338a114,114,0,1,1,114-114A114,114,0,0,1,224,338Zm146-185a26,26,0,1,1,26-26A26,26,0,0,1,370,153Z"/>
+      </svg>
+      Follow on Instagram
+    </a>
+  </div>
+
+  <footer>
+    <p>Follow me on ig ;) -> <a href="https://www.instagram.com/monkeyriceyongchak/" target="_blank">manii!!</a> <br> &copy; <span id="year"></span> Casual Philosophy Enjoyer</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
