@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casual Philosophy Blog</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f9d0.svg" type="image/png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;500&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f7f6f3, #ecebe8, #f1eee7);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      color: #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .container {
+      background: #ffffffcc;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      max-width: 700px;
+      width: 100%;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+    p {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      margin-bottom: 2rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      background: #1a1a1a;
+      color: #f6f5f2;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .social-link:hover {
+      background: #333;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    a.back {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #444;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    a.back:hover {
+      border-color: #444;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🪶 New Blog Coming Soon</h1>
+    <p>I’m currently setting up my philosophy blog.<br>In the meantime, check out my socials!</p>
+    <a href="https://www.instagram.com/casualphilosophyenjoyer" target="_blank" class="social-link">Visit Instagram</a>
+    <a href="index.html" class="back">← Back to Home</a>
+  </div>
+</body>
+</html>
