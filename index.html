@@ -62,24 +62,50 @@
       text-decoration: none;
       font-size: 1rem;
       padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      background: #1a1a1a;
-      color: #f6f5f2;
-      transition: all 0.3s ease;
+      border-radius: 10px;
       font-weight: 500;
       margin: 0.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      color: #1a1a1a;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
     }
 
     .social-link:hover {
-      background: #333;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       transform: translateY(-2px);
+      border-color: rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .social-link[href*="substack"] {
+      background: rgba(0, 0, 0, 0.05);
+      color: #1a1a1a;
+    }
+    .social-link[href*="substack"]:hover {
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .social-link[href*="instagram"] {
+      background: rgba(245, 240, 230, 0.4);
+    }
+    .social-link[href*="instagram"]:hover {
+      background: rgba(245, 240, 230, 0.6);
+    }
+
+    .social-link[href*="blog"] {
+      background: rgba(26, 26, 26, 0.05);
+    }
+    .social-link[href*="blog"]:hover {
+      background: rgba(26, 26, 26, 0.1);
     }
 
     .social-link svg {
       width: 18px;
       height: 18px;
       fill: currentColor;
+      opacity: 0.8;
     }
 
     footer {
@@ -88,18 +114,6 @@
       color: #666;
       animation: fadeIn 1.2s ease 1s forwards;
       opacity: 0;
-    }
-
-    footer a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-
-    footer a:hover {
-      border-color: #666;
     }
 
     @keyframes fadeIn {
@@ -121,26 +135,36 @@
 </head>
 <body>
   <div class="container">
-    <h1>Casual Philosophy Enjoyer</h1>
-    <p>expressing my thoughts type shi 😝 <br><br><strong>blog coming soon!!</strong></p>
+    <h2>ꯃꯇꯝ ꯈꯔꯥ ꯉꯥꯏꯌꯨ ꯋꯦꯕꯁꯥꯏꯠ ꯁꯦꯝꯂꯤ 🐺</h2>
+    <br>
+    <h2>ꯇꯥꯏꯞ ꯁꯤ 🥀🙏</h2>
+    <br>
+    <h2>blog coming soon!!</h2>
+    <br>
 
-    <!-- Instagram Button -->
+    <a href="blog.html" class="social-link">Enter Blog</a>
+
+    <a href="https://casualphilosophyenjoyer.substack.com" target="_blank" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M4 3h16v2H4zm0 4h16v2H4zm0 4h16v10l-8-5-8 5z"/></svg>
+      Substack
+    </a>
+
     <a href="https://www.instagram.com/casualphilosophyenjoyer" target="_blank" class="social-link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
         <path d="M224,202a53,53,0,1,0,53,53A53,53,0,0,0,224,202Zm124-41a54,54,0,1,0,54,54A54,54,0,0,0,348,161ZM398.8,80H49.2C22,80,0,102,0,129.2V382.8C0,410,22,432,49.2,432H398.8c27.2,0,49.2-22,49.2-49.2V129.2C448,102,426,80,398.8,80ZM224,338a114,114,0,1,1,114-114A114,114,0,0,1,224,338Zm146-185a26,26,0,1,1,26-26A26,26,0,0,1,370,153Z"/>
       </svg>
-      Follow on Instagram
+      Instagram
     </a>
-
-    <!-- Blog Button -->
-    <a href="blog.html" class="social-link">Enter the Blog</a>
   </div>
 
-  <footer>
-    <p>Follow me on ig ;) -> <a href="https://www.instagram.com/this.is.maniiii/" target="_blank">manii!!</a><br> 
-    &copy; <span id="year"></span> Casual Philosophy Enjoyer</p>
-  </footer>
-
+<footer>
+  <p>Follow me on ig ;) → 
+    <a href="https://www.instagram.com/this.is.maniiii/" target="_blank" style="color: black; font-weight: bold; text-decoration: none;">
+      manii!!
+    </a>
+    <br> &copy; <span id="year"></span> Casual Philosophy Enjoyer
+  </p>
+</footer>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
