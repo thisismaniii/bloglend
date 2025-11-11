@@ -26,10 +26,12 @@
     }
 
     .container {
-      background: #ffffffcc;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(14px) saturate(150%);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
       padding: 2.5rem 2rem;
       border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
       max-width: 700px;
       width: 100%;
       animation: fadeIn 1.2s ease forwards;
@@ -40,15 +42,20 @@
       font-size: clamp(2rem, 6vw, 2.8rem);
       margin-bottom: 1rem;
       color: #1a1a1a;
+      animation: fadeIn 1.2s ease 0.2s forwards;
+      opacity: 0;
     }
 
     p {
       font-size: clamp(1rem, 2.5vw, 1.15rem);
-      margin-bottom: 2rem;
+      margin-bottom: 2.2rem;
       color: #444;
       line-height: 1.6;
+      animation: fadeIn 1.2s ease 0.4s forwards;
+      opacity: 0;
     }
 
+    /* 🪶 Minimalist Glass Buttons */
     .social-link {
       display: inline-flex;
       align-items: center;
@@ -57,27 +64,49 @@
       text-decoration: none;
       font-size: 1rem;
       padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      background: #1a1a1a;
-      color: #f6f5f2;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      color: #1a1a1a;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       transition: all 0.3s ease;
       font-weight: 500;
+      margin: 0.5rem;
     }
 
     .social-link:hover {
-      background: #333;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       transform: translateY(-2px);
+      border-color: rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Subtle tone variations */
+    .social-link.ig {
+      background: rgba(245, 240, 230, 0.45);
+    }
+    .social-link.ig:hover {
+      background: rgba(245, 240, 230, 0.65);
+    }
+
+    .social-link.substack {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    .social-link.substack:hover {
+      background: rgba(0, 0, 0, 0.08);
     }
 
     a.back {
-      display: block;
-      margin-top: 1.5rem;
+      display: inline-block;
+      margin-top: 1.8rem;
       font-size: 0.95rem;
       color: #444;
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s ease;
+      animation: fadeIn 1.2s ease 0.6s forwards;
+      opacity: 0;
     }
 
     a.back:hover {
@@ -86,7 +115,7 @@
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
+      to { opacity: 1; transform: translateY(0); opacity: 1; }
     }
 
     @keyframes gradientShift {
@@ -94,14 +123,24 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
+    @media (max-width: 480px) {
+      .container { padding: 2rem 1.2rem; }
+      .social-link { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🪶 New Blog Coming Soon</h1>
-    <p>I’m currently setting up my philosophy blog.<br>In the meantime, check out my socials!</p>
-    <a href="https://www.instagram.com/casualphilosophyenjoyer" target="_blank" class="social-link">Visit Instagram</a>
-    <a href="index.html" class="back">← Back to Home</a>
+    <p>I’m currently setting up my blog.<br>In the meantime, check out my socials :)</p>
+    <h2>ꯄꯔꯤꯈꯥꯒꯤ ꯂꯥꯏꯔꯤꯛ ꯄꯥꯔꯤ ꯁꯥꯎ ꯌꯥꯗꯦ😭</h2>
+    <br>
+
+    <a href="https://www.instagram.com/casualphilosophyenjoyer" target="_blank" class="social-link ig">Instagram 😛</a>
+    <a href="https://casualphilosophyenjoyer.substack.com" target="_blank" class="social-link substack">Substack 🤓</a>
+<br>
+    <a href="index.html" class="back"> ←Back to Home</a>
   </div>
 </body>
 </html>
