@@ -1,172 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casual Philosophy Enjoyer</title>
-  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/7/70/Emoji_u1f9d0.svg" type="image/png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>my blog</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;500&display=swap');
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #f7f6f3, #ecebe8, #f1eee7);
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
-      color: #2a2a2a;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 1.5rem;
+    :root{
+      --bg:#0b0b0b; --fg:#f5f1e8; --muted:#bdbdbd; --accent:#ff6700;
+      --maxw:900px;
     }
-
-    .container {
-      background: #ffffffcc;
-      padding: 2.5rem 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      max-width: 700px;
-      width: 100%;
-      animation: fadeIn 1.2s ease forwards;
+    body{
+      margin:0; padding:24px; background:var(--bg); color:var(--fg);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      display:flex; flex-direction:column; align-items:center; gap:28px;
     }
+    .wrap{width:100%; max-width:var(--maxw);} 
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{font-weight:700;font-size:1.2rem}
+    nav{display:flex;gap:12px}
+    a{color:var(--muted);text-decoration:none}
+    a:hover{color:var(--fg)}
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 6vw, 3rem);
-      margin-bottom: 1rem;
-      font-weight: 500;
-      color: #1a1a1a;
-      opacity: 0;
-      animation: fadeIn 1.2s ease 0.2s forwards;
+    .hero{background:linear-gradient(180deg,rgba(23,10,1,0.06),transparent);
+      padding:28px;border-radius:10px}
+    .hero h1{margin:0;font-size:1.6rem;color:var(--fg)}
+    .hero p{color:var(--muted);line-height:1.5;margin-top:8px}
+
+    h2{margin:0 0 12px;color:var(--fg)}
+
+    .blog-list, .topic-list, .note-list{
+      display:flex; flex-direction:column; gap:14px;
+      margin-top:10px;
     }
+    .card{
+      padding:16px;border-radius:10px;
+      background:rgba(255,255,255,0.03);
+    }
+    .card h3{margin:0 0 6px;color:var(--fg)}
+    .card p{margin:0;color:var(--muted);line-height:1.4}
 
-    p {
-      font-size: clamp(1rem, 2.5vw, 1.15rem);
-      margin-bottom: 2.5rem;
-      color: #444;
-      line-height: 1.6;
-      opacity: 0;
-      animation: fadeIn 1.2s ease 0.5s forwards;
+    .social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
     }
 
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      font-size: 1rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
-      font-weight: 500;
-      margin: 0.5rem;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      color: #1a1a1a;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(6px);
-      transition: all 0.3s ease;
+.social a {
+  background: #696969;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
     }
 
-    .social-link:hover {
-      transform: translateY(-2px);
-      border-color: rgba(0, 0, 0, 0.15);
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-    }
 
-    .social-link[href*="substack"] {
-      background: rgba(0, 0, 0, 0.05);
-      color: #1a1a1a;
-    }
-    .social-link[href*="substack"]:hover {
-      background: rgba(0, 0, 0, 0.08);
-    }
+    footer{color:var(--muted);font-size:0.9rem;text-align:center;margin-top:18px}
 
-    .social-link[href*="instagram"] {
-      background: rgba(245, 240, 230, 0.4);
-    }
-    .social-link[href*="instagram"]:hover {
-      background: rgba(245, 240, 230, 0.6);
-    }
+    /* theme button */
+    .controls{display:flex;align-items:center;gap:8px}
+    button{background:none;border:1px solid rgba(255,255,255,0.06);
+      color:var(--fg);padding:6px 10px;border-radius:8px;cursor:pointer}
 
-    .social-link[href*="blog"] {
-      background: rgba(26, 26, 26, 0.05);
-    }
-    .social-link[href*="blog"]:hover {
-      background: rgba(26, 26, 26, 0.1);
-    }
+    /* light mode */
+    .light{--bg:#faf9f7;--fg:#111;--muted:#444}
+    .light body{transition:background 200ms,color 200ms}
 
-    .social-link svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-      opacity: 0.8;
-    }
-
-    footer {
-      margin-top: 2.5rem;
-      font-size: 0.9rem;
-      color: #666;
-      animation: fadeIn 1.2s ease 1s forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    @media (max-width: 480px) {
-      .container { padding: 2rem 1.2rem; }
-      .social-link { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+    @media (max-width:520px){
+      body{padding:16px}
+      .hero h1{font-size:1.25rem}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>ꯃꯇꯝ ꯈꯔꯥ ꯉꯥꯏꯌꯨ ꯋꯦꯕꯁꯥꯏꯠ ꯁꯦꯝꯂꯤ 🐺</h2>
-    <br>
-    <h2>ꯇꯥꯏꯞ ꯁꯤ 🥀🙏</h2>
-    <br>
-    <h2>blog coming soon!!</h2>
-    <br>
+  <div class="wrap">
 
-    <a href="blog.html" class="social-link">Enter Blog</a>
+    <!-- HEADER -->
+    <header>
+      <div class="brand"><a href="#home">mani's blog</a></div>
+      <div class="controls">
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#recent">Recent</a>
+          <a href="#topics">Topics</a>
+          <a href="#notes">Notes</a>
+          <a href="#links">Links</a>
+        </nav>
+        <button id="theme">🌙</button>
+      </div>
+    </header>
+<br><br>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <h1>Hey, I'm mani(raj)</h1>
+      <p>This is my blog(kind of, working on it 😭) where I will be writing about philosophy, books, tech, and whatever interests me <3</p>
+    </section>
 
-    <a href="https://casualphilosophyenjoyer.substack.com" target="_blank" class="social-link">
-      <svg viewBox="0 0 24 24"><path d="M4 3h16v2H4zm0 4h16v2H4zm0 4h16v10l-8-5-8 5z"/></svg>
-      Substack
-    </a>
+    <!-- RECENT BLOG POSTS -->
+    <section id="recent" style="margin-top:22px">
+      <h2>Recent blog</h2>
+      <p>ꯃꯇꯝ ꯈꯔꯥ ꯉꯥꯏꯌꯨ ꯄꯔꯤꯈꯥꯒꯤ ꯂꯥꯏꯔꯤꯛ ꯄꯥꯔꯤ 😭</p>
+    </section>
 
-    <a href="https://www.instagram.com/casualphilosophyenjoyer" target="_blank" class="social-link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-        <path d="M224,202a53,53,0,1,0,53,53A53,53,0,0,0,224,202Zm124-41a54,54,0,1,0,54,54A54,54,0,0,0,348,161ZM398.8,80H49.2C22,80,0,102,0,129.2V382.8C0,410,22,432,49.2,432H398.8c27.2,0,49.2-22,49.2-49.2V129.2C448,102,426,80,398.8,80ZM224,338a114,114,0,1,1,114-114A114,114,0,0,1,224,338Zm146-185a26,26,0,1,1,26-26A26,26,0,0,1,370,153Z"/>
-      </svg>
-      Instagram
-    </a>
+    <!-- TOPICS -->
+    <section id="topics" style="margin-top:28px">
+      <h2>Topics</h2>
+      <p>ꯃꯇꯝ ꯈꯔꯥ ꯉꯥꯏꯌꯨ ꯄꯔꯤꯈꯥꯒꯤ ꯂꯥꯏꯔꯤꯛ ꯄꯥꯔꯤ 😭</p>
+
+    </section>
+
+    <!-- NOTES -->
+    <section id="notes" style="margin-top:28px">
+      <h2>Notes</h2>
+      <p>ꯃꯇꯝ ꯈꯔꯥ ꯉꯥꯏꯌꯨ ꯄꯔꯤꯈꯥꯒꯤ ꯂꯥꯏꯔꯤꯛ ꯄꯥꯔꯤ 😭</p>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links" style="margin-top:28px">
+      <h2>Links</h2>
+      <div class="social">
+        <a href="https://casualphilosophyenjoyer.substack.com/" target="_blank">my substack!!</a>
+        <a href="https://www.instagram.com/casualphilosophyenjoyer" target="_blank"> Instagram!!</a>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> casualphilosophyenjoyer</footer>
   </div>
 
-<footer>
-  <p>Follow me on ig ;) → 
-    <a href="https://www.instagram.com/this.is.maniiii/" target="_blank" style="color: black; font-weight: bold; text-decoration: none;">
-      manii!!
-    </a>
-    <br> &copy; <span id="year"></span> Casual Philosophy Enjoyer
-  </p>
-</footer>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const btn = document.getElementById('theme');
+    const root = document.documentElement;
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    const saved = localStorage.getItem('cw_light');
+    if (saved === '1') root.classList.add('light'), btn.textContent = '☀️';
+
+    btn.addEventListener('click', ()=>{
+      const isLight = root.classList.toggle('light');
+      localStorage.setItem('cw_light', isLight ? '1' : '0');
+      btn.textContent = isLight ? '☀️' : '🌙';
+    });
   </script>
 </body>
 </html>
