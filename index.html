@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>my blog</title>
   <style>
+     #home{
+        border: 2px solid rgb(110, 110, 110); 
+
+    }
     .controls {
   display: flex;
-  align-items: center;
   gap: 20px;   /* space between nav and the 🌙 button */
 }
 
@@ -23,7 +26,7 @@
     body{
       margin:0; padding:24px; background:var(--bg); color:var(--fg);
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      display:flex; flex-direction:column; align-items:center; gap:28px;
+      display:flex; flex-direction:column; align-items:justify; gap:28px;
     }
     .wrap{width:100%; max-width:var(--maxw);} 
     header{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -73,12 +76,14 @@
       color:var(--fg);padding:6px 10px;border-radius:8px;cursor:pointer}
 
     /* light mode */
-    .light{--bg:#faf9f7;--fg:#111;--muted:#444}
+    .light{--bg:rgb(139, 201, 243);--fg:#212121;--muted:#444}
     .light body{transition:background 200ms,color 200ms}
 
     @media (max-width:520px){
       body{padding:16px}
       .hero h1{font-size:1.25rem}
+
+   
     }
   </style>
 </head>
